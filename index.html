@@ -1,36 +1,67 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-document.body.background = "";
+    <div class="all">
+        
+        <div class="catalina">
+            <img src="pg/9-11.jpeg">
+        </div>
+        <span id="clock"></span>
+        <span id="weather"></span>
+    </div>
 </body>
 <script type="text/javascript">
 var currentTime = new Date().getHours();
 console.log(currentTime);
-if (document.body) {
+var span = document.getElementById('clock');
+
+function time() {
+    var currentTime = new Date().getHours();
+    var d = new Date();
+    var s = d.getSeconds();
+    var m = d.getMinutes();
+    var h = d.getHours();
+    span.textContent = ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
     if (0 <= currentTime && currentTime <= 5) {
-        document.body.background = "pg/0-5.jpg"; 
+        //document.body.style.backgroundImage = "url('pg/0-5.jpeg')";
+        document.getElementById('catalina').innerHTML = '<img src="pg/0-5.jpeg">'
     }
     else if (6 <= currentTime && currentTime <= 8) {
-        document.body.background = "pg/6-8.jpg";
+        //document.body.style.backgroundImage = "url('pg/6-8.jpeg')";
+        document.getElementById('catalina').innerHTML = '<img src="pg/6-8.jpeg">'
     }
     else if (9 <= currentTime && currentTime <= 11) {
-        document.body.background = "pg/9-11.jpg";
+        //document.body.style.backgroundImage = "url('pg/9-11.jpeg')";
+        document.getElementById('catalina').innerHTML = '<img src="pg/9-11.jpeg">'
     }
     else if (12 <= currentTime && currentTime <= 14) {
-        document.body.background = "pg/12-2.jpg";
+        //document.body.style.backgroundImage = "url('pg/12-2.jpeg')";
+        document.getElementById('catalina').innerHTML = '<img src="pg/12-2.jpeg">'
     }
     else if (15 <= currentTime && currentTime <= 17) {
-        document.body.background = "pg/3-5.jpg";
+        //document.body.style.backgroundImage = "url(pg/3-5.jpeg')";
+        document.getElementById('catalina').innerHTML = '<img src="pg/3-5.jpeg">'
     }
     else if (18 <= currentTime && currentTime <= 22) {
-        document.body.background = "pg/6-10.jpg";
+        //document.body.style.backgroundImage = "url('pg/6-10.jpeg')";
+        document.getElementById('catalina').innerHTML = '<img src="pg/6-10.jpeg">'
     }
     else if (23 <= currentTime && currentTime <= 24) {
-        document.body.background = "pg/11-12.jpg";
+        //document.body.style.backgroundImage = "url('pg/11-12.jpeg')";
+        document.getElementById('catalina').innerHTML = '<img src="pg/11-12.jpeg">'
     }
     
-}
+}  
+
+
+setInterval(time, 1000);
+
 </script>
+
+
+
+
 </html>

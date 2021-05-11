@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+
+body {
+    padding:0;
+    margin:0;
+}  
+
+.all {
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.catalina {
+    grid-area: 1 / 1;
+    z-index:0;
+    /* Add the blur effect */
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding-top: 56.25%;
+    position: relative;
+}
+.catalina img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+#clock {
+    text-shadow: grey;
+    color: white;
+    grid-area: 1 / 1;
+    z-index:1;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 30px;
+    padding-left: 40px;
+    font-size: 100px;
+}

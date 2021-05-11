@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+document.body.background = "";
+</body>
+<script type="text/javascript">
+var currentTime = new Date().getHours();
+console.log(currentTime);
+if (document.body) {
+    if (0 <= currentTime && currentTime <= 5) {
+        document.body.background = "pg/0-5.jpg"; 
+    }
+    else if (6 <= currentTime && currentTime <= 8) {
+        document.body.background = "pg/6-8.jpg";
+    }
+    else if (9 <= currentTime && currentTime <= 11) {
+        document.body.background = "pg/9-11.jpg";
+    }
+    else if (12 <= currentTime && currentTime <= 14) {
+        document.body.background = "pg/12-2.jpg";
+    }
+    else if (15 <= currentTime && currentTime <= 17) {
+        document.body.background = "pg/3-5.jpg";
+    }
+    else if (18 <= currentTime && currentTime <= 22) {
+        document.body.background = "pg/6-10.jpg";
+    }
+    else if (23 <= currentTime && currentTime <= 24) {
+        document.body.background = "pg/11-12.jpg";
+    }
+    
+}
+</script>
+</html>

@@ -12,7 +12,10 @@
         <div class="catalina">
             <img id="BACKGROUND" src="pg/0-5.jpeg">
         </div>
+        
         <span id="clock"></span>
+        <p id="dateA">Hello</p>
+        
         <span id="weather">
             <center>
                 <img id="weatherIcon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/04n.svg">
@@ -40,7 +43,11 @@ var span = document.getElementById('clock');
 
 function time() {
     var currentTime = new Date().getHours();
-    var d = new Date();
+    var d = new Date(); 
+
+
+
+    
     var s = d.getSeconds();
     var m = d.getMinutes();
     var h = d.getHours();
@@ -98,7 +105,7 @@ function time() {
         document.getElementById("allBody").style.filter = "brightness(" + minutesInto + "%)";   
     }
 
-    
+
     if (currentTime >= 19 && currentTime <= 9){
         minutesInto = (((h - 19) * 60) + m) / 1.2;
         console.log(minutesInto);
@@ -119,6 +126,37 @@ function cToF(celsius)
 
 
 function checkWeather() {
+
+
+    var currentTime = new Date().getHours();
+    var d = new Date(); 
+
+
+
+    // Weekday
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    var month = d.getUTCMonth() + 1; //months from 1-12    
+    var day = d.getUTCDate();
+    var year = d.getUTCFullYear();
+
+    
+    var WeekDay = weekday[d.getDay()];
+    var Month = months[month]
+    
+
+    var configure = WeekDay + " - " + Month + " " + day + " - " + year;
+    console.log(configure);
+    document.getElementById('dateA').innerText = configure;
+
+
+
     console.log("checking")
     function cToF(celsius) 
     {

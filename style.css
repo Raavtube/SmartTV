@@ -47,10 +47,24 @@ body {
     z-index:1;
     position: relative;
     font-family: 'Roboto', sans-serif;
-    padding-top: 30px;
+    padding-top: 40px;
     padding-left: 50px;
-    font-size: 250px;
+    font-size: 300px;
 }
+
+#dateA {
+    
+    font-weight: 300;
+    text-shadow: grey;
+    color: white;
+    grid-area: 1 / 1;
+    z-index:1;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 50px;
+    font-size: 40px;
+}
+
 
 
 #weather {

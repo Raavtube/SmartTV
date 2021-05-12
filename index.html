@@ -30,7 +30,6 @@ console.log(currentTime);
 var span = document.getElementById('clock');
 
 function time() {
-    checkWeather();
     var currentTime = new Date().getHours();
     var d = new Date();
     var s = d.getSeconds();
@@ -39,7 +38,7 @@ function time() {
     if (h > 12){
         var hour = h - 12;
     }
-    
+
     span.textContent = ("0" + hour).substr(-2) + ":" + ("0" + m).substr(-2);// + ":" + ("0" + s).substr(-2);
     if (0 <= currentTime && currentTime <= 5) {
         //document.body.style.backgroundImage = "url('pg/0-5.jpeg')";
@@ -130,6 +129,7 @@ function checkWeather() {
 
 
 setInterval(time, 1000);
+setInterval(checkWeather, 600000);
 checkWeather();
 </script>
 

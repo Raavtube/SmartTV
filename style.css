@@ -10,6 +10,7 @@ body {
 }  
 
 .all {
+    filter: brightness(100%);
     display: grid;
     position: absolute;
     width: 100%;

@@ -34,6 +34,9 @@
 
 function preventBurn() {
     console.log(document.getElementById("allBody").style.filter);
+    const element = document.querySelector('body')
+    const style = getComputedStyle(element)
+    console.log(style.filter);
     //document.getElementById("allBody").style.filter = "brightness(0%)";   
 }
 

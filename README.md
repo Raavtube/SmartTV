@@ -9,3 +9,5 @@ The Background was taken from MacOS Catalina dynamic wallpaper and changes as th
 
 
 When it gets later in the day the screen will start to become more and more black.
+
+Suggested Resolution is 1366 x 768

@@ -68,7 +68,7 @@ body {
 
 
 #weather {
-    background-color: rgba(140, 152, 171, 0.2);
+    /*background-color: rgba(140, 152, 171, 0.2);*/
     font-weight: 300;
     line-height: 20px;
     text-shadow: grey;

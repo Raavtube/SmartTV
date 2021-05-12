@@ -7,58 +7,130 @@
     <div class="all">
         
         <div class="catalina">
-            <img src="pg/9-11.jpeg">
+            <img id="BACKGROUND" src="pg/0-5.jpeg">
         </div>
         <span id="clock"></span>
-        <span id="weather"></span>
+        <span id="weather">
+            <center>
+                <img id="weatherIcon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/04n.svg">
+                <p>Jacksonville, FL</p>
+                <p>High: <span id="high"></span> | Low: <span id="low"></span></p>
+                <p>Feels Like: <span id="feellike"></span></p>
+                <p>Humidity: <span id="humidity"></span></p>
+            </center>
+        </span>
     </div>
 </body>
 <script type="text/javascript">
+
+
+
 var currentTime = new Date().getHours();
 console.log(currentTime);
 var span = document.getElementById('clock');
 
 function time() {
+    checkWeather();
     var currentTime = new Date().getHours();
     var d = new Date();
     var s = d.getSeconds();
     var m = d.getMinutes();
     var h = d.getHours();
-    span.textContent = ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
+    if (h > 12){
+        var hour = h - 12;
+    }
+    
+    span.textContent = ("0" + hour).substr(-2) + ":" + ("0" + m).substr(-2);// + ":" + ("0" + s).substr(-2);
     if (0 <= currentTime && currentTime <= 5) {
         //document.body.style.backgroundImage = "url('pg/0-5.jpeg')";
-        document.getElementById('catalina').innerHTML = '<img src="pg/0-5.jpeg">'
+        document.getElementById('BACKGROUND').innerHTML = 'pg/0-5.jpeg">'
+
     }
-    else if (6 <= currentTime && currentTime <= 8) {
+    else if (6 <= currentTime && currentTime <= 10) {
         //document.body.style.backgroundImage = "url('pg/6-8.jpeg')";
-        document.getElementById('catalina').innerHTML = '<img src="pg/6-8.jpeg">'
+        document.getElementById('BACKGROUND').src = 'pg/6-10.jpeg'
     }
     else if (9 <= currentTime && currentTime <= 11) {
         //document.body.style.backgroundImage = "url('pg/9-11.jpeg')";
-        document.getElementById('catalina').innerHTML = '<img src="pg/9-11.jpeg">'
+        document.getElementById('BACKGROUND').src = 'pg/9-11.jpeg'
     }
     else if (12 <= currentTime && currentTime <= 14) {
         //document.body.style.backgroundImage = "url('pg/12-2.jpeg')";
-        document.getElementById('catalina').innerHTML = '<img src="pg/12-2.jpeg">'
+        document.getElementById('BACKGROUND').src = 'pg/12-2.jpeg'
     }
     else if (15 <= currentTime && currentTime <= 17) {
         //document.body.style.backgroundImage = "url(pg/3-5.jpeg')";
-        document.getElementById('catalina').innerHTML = '<img src="pg/3-5.jpeg">'
+        document.getElementById('BACKGROUND').src = 'pg/3-5.jpeg'
     }
     else if (18 <= currentTime && currentTime <= 22) {
         //document.body.style.backgroundImage = "url('pg/6-10.jpeg')";
-        document.getElementById('catalina').innerHTML = '<img src="pg/6-10.jpeg">'
+        document.getElementById('BACKGROUND').src = 'pg/6-8.jpeg'
     }
     else if (23 <= currentTime && currentTime <= 24) {
         //document.body.style.backgroundImage = "url('pg/11-12.jpeg')";
-        document.getElementById('catalina').innerHTML = '<img src="pg/11-12.jpeg">'
+        document.getElementById('BACKGROUND').innerHTML = 'pg/11-12.jpeg'
     }
+    
     
 }  
 
 
-setInterval(time, 1000);
+function cToF(celsius) 
+{
+  var cTemp = celsius;
+  var cToFahr = cTemp * 9 / 5 + 32;
+  var final = Math.round(cToFahr * 10) / 10
+  var message = final + ' \xB0F.';
+    return(message);
+}
 
+
+function checkWeather() {
+    console.log("checking")
+    function cToF(celsius) 
+    {
+    var cTemp = celsius;
+    var cToFahr = cTemp * 9 / 5 + 32;
+    var final = Math.round(cToFahr * 10) / 10
+    var message = final + ' \xB0F.';
+        return(message);
+    }
+
+    const apiKey = "f7d27826040cbfb52b9b78c4e84e0c05";
+    var inputVal = "jacksonville";
+    //ajax here
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const { main, name, sys, weather } = data;
+        const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
+        weather[0]["icon"]
+        }.svg`;
+        
+        document.getElementById("weatherIcon").src=icon;
+        document.getElementById('feellike').innerText = cToF(main.feels_like);
+        document.getElementById('high').innerText = cToF(main.temp_max);
+        document.getElementById('low').innerText = cToF(main.temp_min);
+        document.getElementById('humidity').innerText = main.humidity + "%";
+
+        
+        
+    })
+
+
+}
+
+
+
+
+
+
+
+
+setInterval(time, 1000);
+checkWeather();
 </script>
 
 

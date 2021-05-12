@@ -2,20 +2,23 @@
 
 
 body {
+    background-color: black;
     padding:0;
     margin:0;
+    overflow: hidden;
 }  
 
 .all {
     display: grid;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 
 
 .catalina {
+    
     grid-area: 1 / 1;
     z-index:0;
     /* Add the blur effect */
@@ -28,6 +31,7 @@ body {
     position: relative;
 }
 .catalina img {
+    filter: brightness(70%);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -43,6 +47,31 @@ body {
     position: relative;
     font-family: 'Roboto', sans-serif;
     padding-top: 30px;
-    padding-left: 40px;
-    font-size: 100px;
+    padding-left: 50px;
+    font-size: 250px;
+}
+
+
+#weather {
+    line-height: 20px;
+    text-shadow: grey;
+    color: white;
+    grid-area: 1 / 1;
+    z-index:1;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    margin-left: auto; 
+    margin-right: 0;
+    font-size: 40px;
+    padding-right: 100px;
+}
+
+#weatherIcon {
+    filter: invert(1);
+    width: 300px;
+    height: 300px;
+}
+
+.centerItems {
+    align-content: center;
 }

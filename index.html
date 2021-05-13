@@ -144,7 +144,7 @@ function time() {
     }
 
 
-    if (currentTime >= 19 && currentTime <= 9){
+    if (currentTime >= 18 && currentTime <= 9){
         minutesInto = (((h - 19) * 60) + m) / 1.2;
         console.log(minutesInto);
         document.getElementById("allBody").style.filter = "brightness(" + minutesInto + "%)";   

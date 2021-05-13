@@ -144,13 +144,13 @@ function time() {
     }
 
 
-    if (currentTime >= 20 && currentTime <= 21){
+    if (currentTime >= 18 && currentTime <= 20){
         minutesInto = (((h - 19) * 60) + m) / 1.2;
         console.log(minutesInto);
         document.getElementById("allBody").style.filter = "brightness(25%)";   
     }
 
-    if(currentTime > 21){
+    if(currentTime > 20){
         document.getElementById("allBody").style.filter = "brightness(0%)";   
     }
     

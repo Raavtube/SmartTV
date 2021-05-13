@@ -137,22 +137,6 @@ function time() {
 
     // Change Screen Brightness Based on Time of Day
     
-    if (currentTime >= 6 && currentTime <= 9){
-        minutesInto = (((h - 6) * 60) + m) / 1.8;
-        console.log(minutesInto);
-        document.getElementById("allBody").style.filter = "brightness(50%)";   
-    }
-
-
-    if (currentTime >= 18 && currentTime <= 20){
-        minutesInto = (((h - 19) * 60) + m) / 1.2;
-        console.log(minutesInto);
-        document.getElementById("allBody").style.filter = "brightness(25%)";   
-    }
-
-    if(currentTime > 20){
-        document.getElementById("allBody").style.filter = "brightness(0%)";   
-    }
     
 }  
 
